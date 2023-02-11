@@ -1,0 +1,39 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  max-width: 100vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(512px, 1fr));
+}
+nav {
+  grid-column: 1 / -1;
+}
+
+body > div {
+  padding: 7px;
+}
+
+#div1 {
+}
+
+#div2 {
+  background: rgba(183, 176, 176, 0.495);
+}
+
+#div3 {
+}
+
+#div4 {
+  background: rgb(82, 82, 82);
+}
+#div5 {
+  background: rgb(204, 124, 124);
+}
+#div6 {
+  background: rgb(135, 135, 190);
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>3. DN :: OIS 2021/2022</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="icon" href="./favicon.png" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="knjiznice/js/koda.js"></script>
+  </head>
+  <body>
+    <!-- ZAČETEK: Menujska vrstica na vrhu spletne strani -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <!-- ZAČETEK: Ime vaše aplikacije -->
+        <a class="nav-link navbar-brand" href="index.html">Temperaturko</a>
+        <!-- KONEC: Ime vaše aplikacije -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menujska-vrstica"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon" title="Prikaži menu"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menujska-vrstica">
+          <div class="navbar-nav">
+            <a class="nav-link" href="opis.html"
+              ><i class="fa-solid fa-book me-1"></i>Opis ideje</a
+            >
+            <a class="nav-link" href="nacrt.html"
+              ><i class="fa-solid fa-diagram-project me-1"></i>Načrt
+              informacijske rešitve</a
+            >
+            <a class="nav-link" href="#"
+              ><i class="fa-solid fa-gears me-1"></i>Generiranje podatkov</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- KONEC: Menujska vrstica na vrhu spletne strani -->
+
+    <!-- ZAČETEK: Opis delovanja aplikacije -->
+    <div class="container">
+      <div class="card text-center m-3 mb-4">
+        <div class="card-header pb-0">
+          <h4>
+            <i class="fa-solid fa-pencil me-2"></i>Opis ideje, ki jo aplikacija
+            podpira
+          </h4>
+        </div>
+        <div class="card-body">
+          <!-- ZAČETEK: Opis ideje, ki jo aplikacija podpira -->
+          <p>
+            Uporabnik lahko aplikacijo uporablja za beleženje vremena ter za
+            pregled že zabeleženih podatkov. Sam lahko vpisuje podatke o
+            temperaturi za svoje mesto ali pa si ogleda podatke drugih mest.
+            Ciljna skupina uporabnikov so ljudje, ki radi spremljajo vreme v
+            svojem hobiju.
+          </p>
+
+          <!-- KONEC: Opis ideje, ki jo aplikacija podpira -->
+        </div>
+      </div>
+
+      <div class="card text-center m-3 mb-4">
+        <div class="card-header pb-0">
+          <h4>
+            <i class="fa-solid fa-pencil me-2"></i>Uporabljeni zunanji viri
+            podatkov
+          </h4>
+        </div>
+        <div class="card-body">
+          <!-- ZAČETEK: Uporabljeni zunanji viri podatkov -->
+          <p class="mb-0"></p>
+          </p>
+          <p>
+            Iz https://api.openweathermap.org/geo/1.0/direct sem za poljubno mesto (imajo jih preko 200.000) poizvedoval temperaturo, ki jo nato predstavim v grafu. API nam poda jutranje, dnevne, popoldanke in nočne temperature v določenem mestu. Tako lahko za vsako mesto z lahkoto izvemo kaksna temperatura je bila v preteklosti.
+          </p>
+          <!-- KONEC: Uporabljeni zunanji viri podatkov -->
+        </div>
+      </div>
+
+      <div class="card text-center m-3 mb-4">
+        <div class="card-header pb-0">
+          <h4>
+            <i class="fa-solid fa-pencil me-2"></i>Master/detail načrtovalski
+            vzorec
+          </h4>
+        </div>
+        <div class="card-body">
+          <!-- ZAČETEK: Master/detail načrtovalski vzorec -->
+          <p class="mb-0">
+            <strong><i class="fa-solid fa-list-check me-1"></i>TO-DO</strong>:
+            
+          <p>
+            V aplikaciji sem master/detail vzorec uporabil na grafu kjer lahko če se postavimo na določeno točko, izvemo povprecno temperaturo dneva. Tako se lahko izvemo povprecno temperaturo vsakega dneva.
+          </p>
+          <!-- KONEC: Master/detail načrtovalski vzorec -->
+        </div>
+      </div>
+
+      <div class="card text-center m-3">
+        <div class="card-header pb-0">
+          <h4>
+            <i class="fa-solid fa-pencil me-2"></i>Uporabljena tehnika za
+            vizualizacijo podatkov
+          </h4>
+        </div>
+        <div class="card-body">
+          <!-- ZAČETEK: Uporabljeni zunanji viri podatkov -->
+          <p class="mb-0">
+            <strong><i class="fa-solid fa-list-check me-1"></i>TO-DO</strong>:
+            Podatke sem vizualiziral z uporabo knjžnice canvas.js. Izbral sem tehniko "Spline Chart", ker se mi je ta zdela najbolj primerna da prikaže nihanje temperature v dnevu.
+          </p>
+          <!-- KONEC: Uporabljeni zunanji viri podatkov -->
+        </div>
+      </div>
+    </div>
+    <!-- KONEC: Opis delovanja aplikacije -->
+  </body>
+</html>

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>3. DN :: OIS 2021/2022</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/stil.css" />
+    <link rel="icon" href="./favicon.png" />
+  </head>
+  <body>
+    <!-- ZAČETEK: Menujska vrstica na vrhu spletne strani -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <!-- ZAČETEK: Ime vaše aplikacije -->
+        <a class="nav-link navbar-brand" href="index.html">Temperaturko</a>
+        <!-- KONEC: Ime vaše aplikacije -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menujska-vrstica"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon" title="Prikaži menu"></span>
+        </button>
+        <div class="collapse navbar-collapse navbar-nav" id="menujska-vrstica">
+          <a class="nav-link" href="opis.html"
+            ><i class="fa-solid fa-book me-1"></i>Opis ideje</a
+          >
+          <a class="nav-link" href="nacrt.html"
+            ><i class="fa-solid fa-diagram-project me-1"></i>Načrt informacijske
+            rešitve</a
+          >
+          <a class="nav-link" href="#"  onclick="generiraj()"
+            ><i class="fa-solid fa-gears me-1"></i>Generiranje podatkov</a
+          >
+          
+        </div>
+      </div>
+    </nav>
+    <!-- KONEC: Menujska vrstica na vrhu spletne strani -->
+
+    <!-- ZAČETEK: Vsebina aplikacije -->
+    <div id="all">
+    <h1>Lastna baza temperatur</h1>
+    <div id="temp">
+    <div id="div1">
+      <h3>Vpisi podatke o temperaturi</h3>
+
+      <p>
+        Ime mesta:<br /><input
+          style="height: 35px; width: 450px; font-size: 14pt"
+          type="text"
+          placeholder="Npr. Ljubljana"
+          id="ime_mesta"
+        />
+      </p>
+      <p>
+        Regija:<br /><input
+          style="height: 35px; width: 450px; font-size: 14pt"
+          type="text"
+          placeholder="Npr. Primorkska"
+          id="regija"
+        />
+      </p>
+
+      <p>
+        Koordinate:<br /><input
+          style="height: 35px; width: 450px; font-size: 14pt"
+          type="text"
+          placeholder="Npr. 45.6, 12.3"
+          id="koordinate"
+        />
+      </p>
+      <placeholder><h3>Temperature ob 12.00 v °C</h3></placeholder>
+      <p>
+        Predvčerajšnjim:
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Včeraj:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Danes:<br /><input
+          style="height: 35px; width: 150px; font-size: 14pt"
+          type="preducirajšnim"
+          placeholder="Npr. 20"
+          id="preduciraj"
+        />
+        <input
+          style="height: 35px; width: 150px; font-size: 14pt"
+          type="vceraj"
+          placeholder="Npr. 18"
+          id="vceraj"
+        />
+        <input
+          style="height: 35px; width: 150px; font-size: 14pt"
+          type="danes"
+          placeholder="Npr. 21"
+          id="danes"
+        />
+      </p>
+      <button type="button" onclick="postDataTempCustom()">Dodaj mesto</button>
+      <p style="color: red" id="napaka"><strong></strong></p>
+    </div>
+    <div id="div2">
+      <h2>Preberi temperaturo:</h2>
+      <div
+        style="
+          position: relative;
+          width: 200px;
+          height: 25px;
+          border: 0;
+          padding: 0;
+          margin: 0;
+        "
+      >
+        <select
+          id="selectbox"
+          style="
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 200px;
+            height: 25px;
+            line-height: 20px;
+            margin: 0;
+            padding: 0;
+          "
+        >
+          <option>Izberi mesto</option>
+        </select>
+        <br />
+      </div>
+      <br />
+      <br />
+      <p>
+        <button type="button" onclick="showTempData()">Prikaži podatke</button>
+        <p style="color: red" id="napaka2"><strong></strong></p>
+        <table>
+          <tr>
+            <th>Kraj</th>
+            <th>Regija</th>
+            <th>Koordinate</th>
+            <th>Pred včeraj</th>
+            <th>Včeraj</th>
+            <th>Danes</th>
+          </tr>
+          <tr id="table_data"></tr>
+        </table>
+      </p>
+    </div>
+  </div>
+  <h1>Branje temperature iz API</h1>
+  <div id="tempAPI">
+    <div id="div4">
+      <h3>Poišči mesto:</h3>
+      <br>
+      <input type="text" placeholder="Npr: Ljubljana" id="mestoAPI">
+      <button onclick="getCityAPI()">Išči!</button>
+      <p style="color: red;" id="napaka3"><strong></strong></p>
+      <br>
+      <br>
+      <p style="margin: 0;">Ali ste mislili?</p>
+      <select id="city">
+        <option>Poiščite mesto!</option>
+      </select>
+      <button onclick="getWeatherAPI()">Prikaži podatke!</button>
+    </div>
+    <div id="div5">
+      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    </div>
+  </div>
+  <h1>Všečkanje apliacije</h1>
+  <div id="block">
+    <div id="div6">
+      <div class="col shadow p-3 mb-5 bg-white rounded" id="vseckanje">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-md-12">
+                <h3 class="panel-title">
+                  <span class="glyphicon glyphicon-list-alt"></span>
+                  <span>Vsečkaj me</span>
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div class="panel-body">
+            Naslov računa: <input id="racunVnos" type="text" class="form-control input-mini" placeholder="Tvoja denarnica">
+            Geslo <input id="gesloVnos" type="password" class="form-control" placeholder="OIS je kul">
+            <br>
+            <button type="button" class=" btn-s" onclick="prijava()">Prijava</button><span id="message123"></span>
+            </div>
+        </div>
+        </div>
+      <!-- History -->
+      <div class="col shadow p-3 mb-5 bg-white rounded offset-1">
+        <table class="table">
+          <thead>
+            
+            <th scope="col">Ime pošiljatelja</th>
+            <th scope="col">Količina</th>
+            
+          </thead>
+          <tbody id="podatkiEth">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+  </div>
+    
+
+    <!-- KONEC: Vsebina aplikacije -->
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.7.3/web3.min.js"></script>
+  <script src="knjiznice/js/koda.js"></script>
+</html>

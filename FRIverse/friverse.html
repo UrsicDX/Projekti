@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>DN1</title>
+    <link rel="icon" href="./favicon.png" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/stili.css" />
+  </head>
+  <body>
+    <meni>
+      <h1 title="v 0.1"><i class="fa-solid fa-globe"></i> FRIverse</h1>
+      <korak id="ucilnica" style="border-left-color: #b3ffb3">
+        <input
+          type="radio"
+          id="prvi"
+          name="korak"
+          value="ucilnica"
+          onchange="izbiraKoraka(this)"
+          checked
+        />
+        <label for="prvi"
+          ><i class="fa-solid fa-door-open"></i> Najdi učilnico</label
+        >
+        <div class="odmik">
+          <opomba>Orodje za iskanje ustrezne laboratorijske učilnice</opomba>
+          Cikel od
+          <input
+            id="ura"
+            type="number"
+            width="30%"
+            min="7"
+            max="15"
+            onkeydown="return false"
+          />
+          do
+          <small>...</small> ure<br />
+          <select id="termini" onchange="obIzbiriTermina()">
+            <option value="">Izberite termin..</option>
+            <option value="">Omogočen</option>
+            <option value="" disabled>Neomogočen 1</option>
+            <option value="" disabled>Neomogočen 2</option>
+            <option value="">Izberi me</option>
+          </select>
+        </div>
+      </korak>
+      <korak id="lastnosti">
+        <input
+          type="radio"
+          name="korak"
+          id="drugi"
+          value="lastnosti"
+          onchange="izbiraKoraka(this)"
+          disabled
+        />
+        <label for="drugi"
+          ><i class="fa-solid fa-list-check"></i> Dodatne lastnosti
+          učilnice</label
+        >
+        <div class="odmik">
+          <opomba>Število računalnikov in ostale specifike</opomba>
+          <table id="lastUc">
+            <tr id="fr">
+              <td><i class="fa-solid fa-laptop-code"></i></td>
+              <td>Lastnosti</td>
+            </tr>
+            <tr>
+              <td class="racunalnik"></td>
+              <td>računalnikov</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>OS</td>
+            </tr>
+            <tr>
+              <td><i class="fa-solid fa-check"></i></td>
+              <td></td>
+            </tr>
+            <tr id="seznam_lastnosti">
+              <td colspan="2"></td>
+            </tr>
+          </table>
+          <input
+            id="prikazi"
+            type="button"
+            onclick="prikaziUcilnicoNaNacrtu('yellowgreen','#f0f0f5')"
+            disabled
+            value="Prikaži učilnico"
+          />
+        </div>
+      </korak>
+      <korak id="zaklad">
+        <input
+          type="radio"
+          name="korak"
+          id="tretji"
+          value="zaklad"
+          onchange="izbiraKoraka(this)"
+        />
+        <label for="tretji"
+          ><i class="fa-solid fa-magnifying-glass-location"></i> Interaktivno
+          iskanje zaklada</label
+        >
+        <br />
+        <div id="zakladicek" class="odmik">
+          <opomba
+            >Na načrtu se skrivajo trije zakladi, ki zmagovalcu se razkrijejo
+            pregovor.</opomba
+          >
+          <input type="text" placeholder="ime 1. zaklada" />
+          <input type="text" placeholder="ime 2. zaklada" />
+          <input type="text" placeholder="ime 3. zaklada" />
+          <button id="preveri">Preveri pregovor</button>
+          <small id="pomagalo"></small>
+        </div>
+      </korak>
+    </meni>
+    <nacrt onmousemove="miska(event)">
+      <label class="pregovor"
+        >٩(- ̮̮̃-̃)۶
+        <small id="odkritih_zakladov">0 odkritih zakladov</small></label
+      ></nacrt
+    >
+    <script src="skripte/svg.min.js"></script>
+    <script src="skripte/jquery.min.js"></script>
+    <script src="skripte/oddaljenost.js"></script>
+    <script src="skripte/skripta.js"></script>
+  </body>
+</html>

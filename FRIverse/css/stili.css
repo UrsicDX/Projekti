@@ -1,0 +1,216 @@
+html {
+  font-family: "Arial";
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 0 0;
+}
+
+body {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0 0 0 0;
+}
+
+meni {
+  margin: 10px;
+  padding: 10px;
+  padding-top: 0px;
+  max-width: 300px;
+  min-width: 300px;
+}
+
+th {
+  color: lightsteelblue;
+  text-align: left;
+  border-bottom: 3px solid lightblue;
+}
+
+.desno {
+  text-align: right;
+  font-style: italic;
+  border-right: 1px solid lightsteelblue;
+}
+
+korak {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px dashed black;
+  padding-bottom: 15px;
+  padding-top: 20px;
+  display: block;
+  border-left: 10px solid white;
+}
+
+korak:last-child {
+  border-bottom: 0;
+}
+
+.prekinjen-rob-zgoraj {
+  border-top: 3px dotted lightblue;
+}
+
+button,
+input[type="button"] {
+  background: #fde7ea;
+  padding: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  color: #a80b1d;
+  cursor: pointer;
+}
+
+table {
+  opacity: 0.2;
+}
+
+nacrt {
+  margin: 10px;
+  overflow: visible;
+  padding: 10px;
+  width: 800px;
+  height: 600px;
+  position: relative;
+}
+
+nacrt svg {
+  cursor: crosshair;
+}
+
+input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: lightyellow;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.fas {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+input[type="number"] {
+  margin-right: 10px;
+  text-align: right;
+}
+
+label[for="prvi"],
+label[for="drugi"],
+label[for="tretji"] {
+  font-weight: bold;
+  padding-left: 5px;
+  cursor: pointer;
+}
+
+.odmik {
+  padding-top: 5px;
+  padding-left: 30px;
+}
+
+#pomagalo {
+  margin-top: 15px;
+  color: blueviolet;
+  font-weight: bold;
+  display: block;
+  font-size: smaller;
+}
+
+opomba {
+  display: block;
+  font-size: 80%;
+  color: gray;
+  padding-bottom: 5px;
+}
+
+.pregovor {
+  color: #a80b1d;
+  text-align: center;
+  z-index: -1;
+}
+
+h1 {
+  margin-top: 0px;
+  margin-bottom: 5px;
+  text-align: center;
+  color: darkblue;
+}
+
+#preveri {
+  margin-top: 10px;
+}
+
+input[type="text"] {
+  padding: 7px;
+}
+
+#termini {
+  margin-top: 10px;
+}
+
+#zakladicek input {
+  display: block;
+  width: 60%;
+}
+
+#zakladicek input:focus {
+  background: #fde7ea;
+}
+
+input,
+button,
+#termini,
+nacrt {
+  border: red solid 1px;
+  box-shadow: 12px 6px 42px -16px rgba(0, 0, 0, 0.75);
+}
+
+button:hover,
+input[type="button"]:hover {
+  background: #a80b1d;
+  color: white;
+}
+
+.pregovor {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 10px);
+}
+
+#lastUc {
+  border-collapse: collapse;
+}
+
+#lastUc tr td:nth-child(1) {
+  text-align: right;
+  border-right: #a3d1e4 1px dotted;
+}
+
+#lastUc tr:last-child {
+  border-top: #a3d1e4 1px dotted;
+}
+
+#lastUc tr td:last-child {
+  text-align: left;
+  border-right: none;
+}
+
+#lastUc tr td {
+  width: 50%;
+}
+
+#fr td {
+  color: #a3d1e4;
+  border-bottom: #a3d1e4 solid 1px;
+}
